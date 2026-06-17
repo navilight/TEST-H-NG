@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mùi Hương Của Bạn Năm 2026 | Quiz Tâm Linh & Khoa Học</title>
+<meta property="og:title" content="Mùi Hương Nào Phù Hợp Với Bạn Nhất Năm 2026?">
+<meta property="og:description" content="Khám phá mùi hương của bạn qua thần số học, bản đồ sao và khoa học aroma therapy">
+<meta property="og:image" content="https://images.unsplash.com/photo-1541643600914-78b084683702?w=1200&h=630&fit=crop">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1510;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --gold-pale: #f7f0e0;
+    --smoke: #f2ede4;
+    --rose: #c4846a;
+    --sage: #7a9e87;
+    --lavender: #8b7fa8;
+    --midnight: #2c2440;
+    --cream: #faf7f2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── STARS BACKGROUND ── */
+  #stars-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: var(--midnight);
+    opacity: 0;
+    transition: opacity 0.8s;
+  }
+  #stars-bg.show { opacity: 1; }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.3); }
+  }
+
+  /* ── LAYOUT ── */
+  #app {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── HERO ── */
+  #screen-intro {
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  #screen-intro.active { display: flex; }
+
+  .hero-emblem {
+    width: 110px; height: 110px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    margin: 0 auto 32px;
+    position: relative;
+    animation: pulse-gold 4s ease-in-out infinite;
+  }
+  @keyframes pulse-gold {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.15); }
+    50%      { box-shadow: 0 0 0 20px rgba(201,168,76,0); }
+  }
+  .hero-emblem::before {
+    content: '';
+    position: absolute; inset: -8px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  h1.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 7vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  h1.hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 14px;
+    color: #7a6e5f;
+    line-height: 1.7;
+    max-width: 440px;
+    margin: 16px auto 40px;
+  }
+
+  .pill-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .pill {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--gold-light);
+    border-radius: 100px;
+    color: #8c7d5e;
+    background: rgba(201,168,76,0.07);
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: white;
+    font-size: 14px; font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 16px 36px;
+    border: none; border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  }
+  .btn-primary:hover {
+    background: #b8962e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--gold);
+    font-size: 13px; font-weight: 500;
+    padding: 12px 24px;
+    border: 1.5px solid var(--gold-light);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 12px;
+  }
+  .btn-secondary:hover { background: var(--gold-pale); }
+
+  /* ── INFO COLLECTION ── */
+  #screen-info { padding-top: 60px; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  h2.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 14px; color: #7a6e5f; line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .form-group { margin-bottom: 24px; }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #8c7d5e;
+    margin-bottom: 10px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--gold-light);
+    border-radius: 12px;
+    background: white;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-input::placeholder { color: #bbb; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .optional-note {
+    font-size: 11px; color: #aaa; margin-top: 6px;
+    display: block;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .progress-bar-bg {
+    flex: 1; height: 3px;
+    background: var(--gold-light);
+    border-radius: 99px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 99px;
+    transition: width 0.5s ease;
+  }
+  .progress-text {
+    font-size: 11px; color: #aaa; letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* ── QUESTION CARD ── */
+  #screen-quiz { padding-top: 50px; }
+  .q-card {
+    background: white;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 20px;
+    padding: 36px 30px 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  }
+  .q-category {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 14px;
+  }
+  .q-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 400;
+    line-height: 1.45;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+  .q-note {
+    font-size: 12px; color: #aaa; font-style: italic;
+    margin-bottom: 24px; margin-top: -18px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--gold-light);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--smoke);
+  }
+  .opt:hover { border-color: var(--gold); background: var(--gold-pale); }
+  .opt.selected {
+    border-color: var(--gold);
+    background: var(--gold-pale);
+    box-shadow: inset 0 0 0 1px var(--gold);
+  }
+  .opt-icon {
+    width: 32px; height: 32px; min-width: 32px;
+    border-radius: 8px;
+    background: rgba(201,168,76,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .opt.selected .opt-icon { background: rgba(201,168,76,0.25); }
+  .opt-body { flex: 1; }
+  .opt-main { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .opt-sub { font-size: 12px; color: #999; margin-top: 3px; line-height: 1.4; }
+
+  .q-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 4px;
+  }
+  .btn-ghost {
+    background: none; border: none;
+    font-size: 13px; color: #aaa;
+    cursor: pointer; padding: 8px 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-ghost:hover { color: var(--gold); }
+
+  /* ── RESULT SCREEN ── */
+  #screen-result { padding-top: 50px; }
+
+  .result-hero {
+    text-align: center;
+    padding: 50px 20px 40px;
+    background: linear-gradient(160deg, var(--midnight) 0%, #3d2e5e 100%);
+    border-radius: 24px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 65%);
+  }
+  .result-scent-icon {
+    font-size: 70px; margin-bottom: 20px; position: relative; z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
+  }
+  .result-tag {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 10px; position: relative; z-index: 1;
+  }
+  .result-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 7vw, 48px);
+    font-weight: 300; color: white;
+    line-height: 1.15; margin-bottom: 6px; position: relative; z-index: 1;
+  }
+  .result-name em { color: var(--gold); font-style: italic; }
+  .result-subtitle {
+    font-size: 13px; color: rgba(255,255,255,0.65);
+    line-height: 1.6; max-width: 380px;
+    margin: 12px auto 0; position: relative; z-index: 1;
+  }
+  .result-stars-deco {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  }
+
+  .result-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 28px;
+  }
+  @media (max-width: 480px) { .result-grid { grid-template-columns: 1fr; } }
+
+  .result-card {
+    background: white;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .result-card-icon { font-size: 22px; margin-bottom: 12px; }
+  .result-card-title {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 8px;
+  }
+  .result-card-body {
+    font-size: 13px; color: #555; line-height: 1.65;
+  }
+  .result-card-body strong { color: var(--ink); }
+  .result-card.full-width { grid-column: 1 / -1; }
+
+  .scent-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .scent-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px;
+    background: var(--smoke);
+    border-radius: 10px;
+  }
+  .scent-dot {
+    width: 10px; height: 10px; min-width: 10px;
+    border-radius: 50%; background: var(--gold);
+  }
+  .scent-item-name { font-size: 13px; font-weight: 500; flex: 1; }
+  .scent-item-note { font-size: 11px; color: #999; }
+
+  .ritual-steps { counter-reset: step; }
+  .ritual-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--smoke);
+  }
+  .ritual-step:last-child { border-bottom: none; }
+  .ritual-step-num {
+    counter-increment: step;
+    width: 28px; height: 28px; min-width: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; color: var(--gold);
+  }
+  .ritual-step-text { font-size: 13px; color: #555; line-height: 1.6; padding-top: 4px; }
+
+  .affirmation-box {
+    background: linear-gradient(135deg, var(--gold-pale), white);
+    border: 1.5px solid var(--gold-light);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .affirmation-box .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .affirmation-box .quote-attr {
+    font-size: 11px; color: #aaa;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .share-row {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  .btn-share {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 13px; font-weight: 500;
+    cursor: pointer; border: none;
+    transition: all 0.2s;
+  }
+  .btn-fb { background: #1877F2; color: white; }
+  .btn-fb:hover { background: #1466d6; }
+  .btn-copy { background: var(--smoke); color: var(--ink); border: 1.5px solid var(--gold-light); }
+  .btn-copy:hover { background: var(--gold-pale); }
+  .btn-retry { background: var(--midnight); color: white; }
+  .btn-retry:hover { background: #1e182e; }
+
+  /* ── NUMEROLOGY CALC INLINE ── */
+  .num-hint {
+    font-size: 12px; color: #aaa; margin-top: 6px; font-style: italic;
+  }
+
+  /* ── LOADING ── */
+  #screen-loading {
+    min-height: 60vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+  #screen-loading.active { display: flex; }
+  .loader-ring {
+    width: 60px; height: 60px;
+    border: 2px solid var(--gold-light);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loader-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-style: italic;
+    color: var(--ink);
+    animation: fade-pulse 2s ease-in-out infinite;
+  }
+  @keyframes fade-pulse {
+    0%,100% { opacity: 0.5; } 50% { opacity: 1; }
+  }
+  .loader-sub { font-size: 12px; color: #aaa; }
+
+  /* ── ORNAMENT DIVIDER ── */
+  .ornament {
+    text-align: center; color: var(--gold-light);
+    font-size: 18px; letter-spacing: 8px;
+    margin: 28px 0;
+    user-select: none;
+  }
+
+  /* ── NUMEROLOGY TAG ── */
+  .num-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--gold-light);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 12px; color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  /* ── TOOLTIP ── */
+  .info-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px;
+    border-radius: 50%; border: 1px solid var(--gold-light);
+    font-size: 10px; color: var(--gold);
+    cursor: help; margin-left: 4px;
+  }
+</style>
+</head>
+<body>
+<div id="stars-bg"></div>
+
+<div id="app">
+
+  <!-- SCREEN: INTRO -->
+  <div id="screen-intro" class="screen active">
+    <div class="hero-emblem">🌸</div>
+    <div class="hero-tag">✦ Quiz Tâm Linh & Khoa Học ✦</div>
+    <h1 class="hero-title">Mùi Hương Của Bạn<br>Năm <em>2026</em></h1>
+    <p class="hero-sub">
+      Kết hợp Thần Số Học · Bản Đồ Sao · Khoa Học Aroma Therapy<br>
+      để tìm ra mùi hương chữa lành và nâng đỡ năng lượng của bạn trong năm nay.
+    </p>
+    <div class="pill-row">
+      <span class="pill">🔢 Thần số học</span>
+      <span class="pill">⭐ Chiêm tinh</span>
+      <span class="pill">🧬 Khoa học mùi hương</span>
+      <span class="pill">🌿 Aroma therapy</span>
+    </div>
+    <button class="btn-primary" onclick="goTo('screen-info')">
+      Khám phá mùi hương của tôi ✦
+    </button>
+    <br>
+    <small style="font-size:11px;color:#bbb;margin-top:16px;display:block">~5 phút · Cá nhân hoá hoàn toàn</small>
+  </div>
+
+  <!-- SCREEN: INFO COLLECTION -->
+  <div id="screen-info" class="screen">
+    <div class="section-label">Bước đầu tiên</div>
+    <h2 class="section-title">Để vũ trụ<br>nhận ra bạn 🌙</h2>
+    <p class="section-desc">Một vài thông tin giúp phân tích thần số học và năng lượng sao của bạn.</p>
+
+    <div class="form-group">
+      <label class="form-label">Họ và tên <span class="info-icon">?</span></label>
+      <input type="text" class="form-input" id="inp-name" placeholder="Nguyễn Thị Lan" oninput="updateNumerology()">
+      <span class="num-hint" id="num-hint-name"></span>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Ngày sinh</label>
+        <input type="date" class="form-input" id="inp-dob" onchange="updateNumerology()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Giờ sinh <span class="info-icon" title="Tuỳ chọn — dùng để xác định Ascendant">?</span></label>
+        <input type="time" class="form-input" id="inp-time">
+        <span class="optional-note">* Không bắt buộc — dùng cho bản đồ sao</span>
+      </div>
+    </div>
+
+    <div id="num-preview" style="display:none; margin-bottom:24px;"></div>
+
+    <div class="form-group">
+      <label class="form-label">Bạn là ♀ hay ♂ hay ⚧</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <label style="flex:1;min-width:100px;">
+          <input type="radio" name="gender" value="female" style="display:none" onclick="selectGender(this)">
+          <div class="opt" id="g-female" onclick="selectGenderById('female')" style="justify-content:center;text-align:center;">
+            <span>♀ Nữ</span>
+          </div>
+        </label>
+        <label style="flex:1;min-width:100px;">
+          <input type="radio" name="gender" value="male" style="display:none" onclick="selectGender(this)">
+          <div class="opt" id="g-male" onclick="selectGenderById('male')" style="justify-content:center;text-align:center;">
+            <span>♂ Nam</span>
+          </div>
+        </label>
+        <label style="flex:1;min-width:120px;">
+          <input type="radio" name="gender" value="neutral" style="display:none">
+          <div class="opt" id="g-neutral" onclick="selectGenderById('neutral')" style="justify-content:center;text-align:center;">
+            <span>⚧ Tự do</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="startQuiz()" style="width:100%;justify-content:center;">
+      Bắt đầu khám phá ✦
+    </button>
+  </div>
+
+  <!-- SCREEN: QUIZ -->
+  <div id="screen-quiz" class="screen">
+    <div class="progress-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0 / 10</span>
+    </div>
+    <div id="q-container"></div>
+  </div>
+
+  <!-- SCREEN: LOADING -->
+  <div id="screen-loading" class="screen">
+    <div class="loader-ring"></div>
+    <div class="loader-text" id="loader-msg">Đang đọc bản đồ sao...</div>
+    <div class="loader-sub">Vũ trụ đang căn chỉnh mùi hương cho bạn 🌸</div>
+  </div>
+
+  <!-- SCREEN: RESULT -->
+  <div id="screen-result" class="screen"></div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════
+
+const QUESTIONS = [
+  {
+    id: 'q1', category: '🔢 Thần Số Học',
+    text: 'Khi bạn thức dậy vào buổi sáng, cảm giác đầu tiên bạn muốn có là gì?',
+    note: null,
+    options: [
+      { icon: '⚡', main: 'Tràn đầy năng lượng & sẵn sàng chinh phục', sub: 'Tôi cần cảm giác tập trung ngay lập tức', value: 'energize', scores: { citrus: 3, woody: 1 } },
+      { icon: '🌊', main: 'Bình yên & từ từ tỉnh thức', sub: 'Tôi cần thời gian chuyển tiếp nhẹ nhàng', value: 'calm', scores: { floral: 2, aquatic: 3 } },
+      { icon: '💫', main: 'Cảm hứng & sáng tạo ngay từ đầu', sub: 'Não tôi bắt đầu làm việc khi vừa mở mắt', value: 'inspire', scores: { spicy: 2, woody: 2, floral: 1 } },
+      { icon: '🌿', main: 'Kết nối với thiên nhiên & đất đai', sub: 'Tôi muốn cảm giác grounded, an toàn', value: 'ground', scores: { earthy: 3, woody: 2 } },
+    ]
+  },
+  {
+    id: 'q2', category: '⭐ Bản Đồ Sao',
+    text: 'Mô tả năng lượng của bạn trong mối quan hệ thân thiết nhất:',
+    note: null,
+    options: [
+      { icon: '🔥', main: 'Mãnh liệt & sâu sắc', sub: 'Tôi yêu hết mình hoặc không yêu', value: 'intense', scores: { spicy: 3, woody: 1 } },
+      { icon: '🌸', main: 'Dịu dàng & nuôi dưỡng', sub: 'Tôi thích chăm sóc và tạo sự ấm áp', value: 'nurture', scores: { floral: 3, powdery: 2 } },
+      { icon: '💨', main: 'Tự do & không bị ràng buộc', sub: 'Không gian cá nhân là điều tôi cần nhất', value: 'free', scores: { aquatic: 3, citrus: 2 } },
+      { icon: '🏛', main: 'Trung thành & ổn định', sub: 'Tôi là người bạn đồng hành đáng tin cậy', value: 'stable', scores: { earthy: 2, woody: 3 } },
+    ]
+  },
+  {
+    id: 'q3', category: '🧬 Khoa Học Mùi Hương',
+    text: 'Hệ thần kinh của bạn phản ứng thế nào với căng thẳng?',
+    note: 'Khoa học: mùi hương ảnh hưởng trực tiếp tới amygdala — trung tâm cảm xúc não bộ',
+    options: [
+      { icon: '🌪', main: 'Tim đập nhanh, khó thở, cơ thể căng cứng', sub: 'Phản ứng chiến-hay-chạy rõ ràng', value: 'fight', scores: { citrus: 2, aquatic: 2, floral: 1 } },
+      { icon: '🪨', main: 'Tê liệt, không làm được gì', sub: 'Tôi cần thời gian để xử lý', value: 'freeze', scores: { woody: 2, earthy: 3 } },
+      { icon: '😴', main: 'Mệt mỏi, muốn thu mình lại', sub: 'Stress khiến tôi kiệt sức cảm xúc', value: 'fawn', scores: { floral: 3, powdery: 2 } },
+      { icon: '🧠', main: 'Tư duy bùng nổ nhưng cơ thể tê liệt', sub: 'Não suy nghĩ quá nhiều', value: 'overthink', scores: { spicy: 2, citrus: 1, woody: 2 } },
+      { icon: '🌀', main: 'Tôi có tất cả những biểu hiện trên', sub: 'Tuỳ tình huống — hệ thần kinh tôi rất đa dạng', value: 'all', scores: { woody: 3, earthy: 3 } },
+    ]
+  },
+  {
+    id: 'q4', category: '🌙 Năng Lượng 2026',
+    text: 'Năm 2026, bạn cảm thấy mình đang ở giai đoạn nào của hành trình?',
+    note: null,
+    options: [
+      { icon: '🌱', main: 'Gieo hạt & xây nền tảng mới', sub: 'Tôi đang bắt đầu lại từ đầu', value: 'seed', scores: { earthy: 3, floral: 1 } },
+      { icon: '🌺', main: 'Nở rộ & toả sáng', sub: 'Đây là lúc tôi thu hoạch thành quả', value: 'bloom', scores: { floral: 3, citrus: 2 } },
+      { icon: '🔄', main: 'Buông bỏ & chuyển hoá', sub: 'Tôi đang ở giai đoạn thay đổi sâu sắc', value: 'transform', scores: { spicy: 3, woody: 1 } },
+      { icon: '🏔', main: 'Củng cố & đi sâu vào nội tâm', sub: 'Tôi cần sự vững chắc & chiều sâu', value: 'deepen', scores: { woody: 3, earthy: 2 } },
+    ]
+  },
+  {
+    id: 'q5', category: '🧬 Khoa Học Mùi Hương',
+    text: 'Cơ thể bạn thường thiếu gì nhất?',
+    note: 'Liệu pháp mùi hương có thể hỗ trợ cân bằng hệ thần kinh tự chủ và hormone',
+    options: [
+      { icon: '😴', main: 'Giấc ngủ sâu & phục hồi', sub: 'Tôi ngủ không ngon hoặc khó đi vào giấc', value: 'sleep', scores: { floral: 2, powdery: 3, aquatic: 1 } },
+      { icon: '⚡', main: 'Năng lượng & sự tập trung', sub: 'Tôi hay mệt giữa ngày hoặc khó tập trung', value: 'energy', scores: { citrus: 3, spicy: 2 } },
+      { icon: '🤗', main: 'Kết nối & ấm áp cảm xúc', sub: 'Tôi hay cảm thấy cô đơn hoặc tách biệt', value: 'connect', scores: { floral: 3, powdery: 1 } },
+      { icon: '🧘', main: 'Bình yên & hiện diện', sub: 'Tâm trí tôi khó tĩnh lại', value: 'peace', scores: { earthy: 2, woody: 3, aquatic: 1 } },
+    ]
+  },
+  {
+    id: 'q6', category: '⭐ Bản Đồ Sao',
+    text: 'Mặt Trăng trong bạn — bạn nuôi dưỡng bản thân bằng cách nào?',
+    note: null,
+    options: [
+      { icon: '📚', main: 'Đọc, học, viết — trí tuệ nuôi tâm hồn', sub: 'Tôi yêu việc hiểu sâu về mọi thứ', value: 'mental', scores: { woody: 2, citrus: 2 } },
+      { icon: '🛁', main: 'Nghi lễ chăm sóc cơ thể', sub: 'Bath, skincare, ăn uống lành mạnh là ritual của tôi', value: 'body', scores: { floral: 2, earthy: 2 } },
+      { icon: '👯', main: 'Kết nối với người thân yêu', sub: 'Tôi hồi phục khi ở bên những người tôi tin tưởng', value: 'social', scores: { powdery: 3, floral: 1 } },
+      { icon: '🌲', main: 'Thiên nhiên & im lặng', sub: 'Tôi cần ra ngoài trời hoặc một mình hoàn toàn', value: 'nature', scores: { earthy: 3, aquatic: 2 } },
+    ]
+  },
+  {
+    id: 'q7', category: '🔢 Thần Số Học',
+    text: 'Từ nào mô tả đúng nhất thương hiệu cá nhân bạn muốn toả ra?',
+    note: null,
+    options: [
+      { icon: '👑', main: 'Uy quyền & đẳng cấp', sub: 'Bước vào phòng, người ta chú ý ngay', value: 'power', scores: { woody: 3, spicy: 2 } },
+      { icon: '🌟', main: 'Sống động & truyền cảm hứng', sub: 'Năng lượng tôi lan toả cho người xung quanh', value: 'vibrant', scores: { citrus: 3, floral: 1 } },
+      { icon: '🌙', main: 'Huyền bí & sâu thẳm', sub: 'Tôi không cần giải thích — cứ để người ta tò mò', value: 'mystic', scores: { spicy: 3, woody: 1 } },
+      { icon: '🕊', main: 'Thuần khiết & chân thực', sub: 'Tôi muốn người ta cảm thấy an toàn bên tôi', value: 'pure', scores: { aquatic: 3, powdery: 2 } },
+    ]
+  },
+  {
+    id: 'q8', category: '🧬 Khoa Học Mùi Hương',
+    multiSelect: true, maxSelect: 2,
+    text: 'Bạn phản ứng với mùi hương như thế nào trong tự nhiên?',
+    note: 'Olfactory memory — mùi hương gắn với ký ức cảm xúc mạnh mẽ hơn bất kỳ giác quan nào khác',
+    options: [
+      { icon: '🍋', main: 'Mùi chanh & trái cây tươi làm tôi tỉnh người', sub: 'Liên quan tới hệ thần kinh giao cảm & cortisol', value: 'citrus_love', scores: { citrus: 4 } },
+      { icon: '🌹', main: 'Hoa cỏ & hương phấn khiến tôi ấm áp dịu lại', sub: 'Kích hoạt oxytocin — hormone gắn kết', value: 'floral_love', scores: { floral: 3, powdery: 2 } },
+      { icon: '🌲', main: 'Mùi gỗ, đất, rừng cho tôi cảm giác an toàn', sub: 'Phytoncides trong gỗ giảm cortisol hiệu quả', value: 'wood_love', scores: { woody: 3, earthy: 2 } },
+      { icon: '🌊', main: 'Mùi biển, mưa, nước sạch khiến tôi thở phào', sub: 'Ion âm trong không khí ẩm tăng serotonin', value: 'aqua_love', scores: { aquatic: 4 } },
+    ]
+  },
+  {
+    id: 'q9', category: '🌙 Năng Lượng 2026',
+    text: 'Điều bạn muốn buông bỏ nhất trong năm 2026?',
+    note: null,
+    options: [
+      { icon: '😰', main: 'Nỗi lo âu về tương lai', sub: 'Tôi muốn sống trong hiện tại hơn', value: 'anxiety', scores: { aquatic: 2, earthy: 2, floral: 1 } },
+      { icon: '😤', main: 'Sự kiểm soát & cầu toàn', sub: 'Tôi muốn học cách buông và tin tưởng', value: 'control', scores: { floral: 2, aquatic: 2 } },
+      { icon: '😶', main: 'Cảm giác vô hình & không được nhìn nhận', sub: 'Tôi muốn chiếm trọn không gian của mình', value: 'invisible', scores: { spicy: 2, woody: 2, citrus: 1 } },
+      { icon: '🥺', main: 'Thói quen tự phê phán & khắt khe với bản thân', sub: 'Tôi muốn yêu thương mình nhiều hơn', value: 'self-critic', scores: { powdery: 3, floral: 2 } },
+    ]
+  },
+  {
+    id: 'q10', category: '⭐ Bản Đồ Sao',
+    text: 'Nếu cuộc đời bạn là một bộ phim, nó thuộc thể loại gì?',
+    note: null,
+    options: [
+      { icon: '🎭', main: 'Sử thi & drama — đầy biến động và chiều sâu', sub: null, value: 'epic', scores: { spicy: 3, woody: 2 } },
+      { icon: '🌸', main: 'Lãng mạn & chữa lành — nhẹ nhàng nhưng sâu sắc', sub: null, value: 'romance', scores: { floral: 3, powdery: 2 } },
+      { icon: '🔬', main: 'Khoa học viễn tưởng & triết học — đi tìm bản chất', sub: null, value: 'scifi', scores: { aquatic: 2, woody: 2, citrus: 1 } },
+      { icon: '🌿', main: 'Tài liệu thiên nhiên — trở về gốc rễ', sub: null, value: 'nature_doc', scores: { earthy: 4, woody: 1 } },
+    ]
+  },
+];
+
+const SCENT_PROFILES = {
+  citrus: {
+    name: 'Ánh Sáng Vàng', subtitle: 'Citrus & Aromatic',
+    emoji: '🍋✨',
+    color: '#d4a017',
+    tagline: 'Bạn là người mang năng lượng bừng sáng — linh hoạt, sắc bén và truyền cảm hứng.',
+    note_pyramid: ['Top: Bergamot, Chanh Vàng, Grapefruit', 'Heart: Petitgrain, Neroli, Lá Xanh', 'Base: Musk Trắng, Gỗ Tuyết Tùng nhẹ'],
+    science: 'Mùi citrus kích hoạt hệ thần kinh giao cảm theo hướng tích cực — tăng dopamine, giảm mệt mỏi tâm lý. Nghiên cứu tại Đại học Mie (Nhật Bản) chứng minh bergamot giảm lo âu tương đương thuốc an thần nhẹ.',
+    numerology: 'Phù hợp với Số Chủ Đạo 1, 3, 5 — số của sự sáng tạo, dẫn dắt và chuyển động.',
+    astro: 'Năng lượng Mặt Trời & Sao Thuỷ — trí tuệ nhanh nhạy, giao tiếp cuốn hút.',
+    ritual: [
+      'Xịt hương vào cổ tay & sau tai mỗi sáng trước 9h — khi Mặt Trời đang ở góc phần tư đầu tiên',
+      'Nhỏ 2 giọt bergamot EO vào máy khuếch tán khi làm việc',
+      'Thêm vỏ cam vào trà buổi sáng để kích hoạt khứu giác từ bên trong',
+    ],
+    recs: [
+      { name: 'Jo Malone – Lime Basil & Mandarin', note: 'Cổ điển · Dễ mặc · Năng lượng cao' },
+      { name: 'Atelier Cologne – Orange Sanguine', note: 'Tươi · Thuần khiết · Không ngọt' },
+      { name: 'Acqua di Parma – Colonia', note: 'Sang trọng · Citrus chắc · Unisex' },
+      { name: 'Tinh dầu Bergamot Ý', note: 'Aromatherapy · Dùng khuếch tán' },
+    ],
+    affirmation: '"Ánh sáng của tôi không cần xin phép ai để toả ra."',
+    year2026: 'Năm 2026, mùi hương của bạn là lời nhắc nhở: bạn không cần chờ đợi điều kiện hoàn hảo để bắt đầu. Citrus đánh thức sự tươi mới trong mỗi hơi thở.',
+  },
+  floral: {
+    name: 'Vườn Bí Mật', subtitle: 'Floral & Feminine',
+    emoji: '🌸🌹',
+    color: '#c4846a',
+    tagline: 'Bạn là người chứa đựng vẻ đẹp có chiều sâu — dịu dàng nhưng không yếu đuối.',
+    note_pyramid: ['Top: Hoa Hồng Bulgari, Hoa Mộc Lan, Chanh Hồng', 'Heart: Nhài Sambac, Ylang-Ylang, Violet', 'Base: Xạ Hương, Gỗ Đàn Hương, Benzoin'],
+    science: 'Mùi hoa hồng và nhài kích thích thụ thể GABA trong não — hiệu quả tương tự như thuốc an thần benzodiazepine nhẹ. Ylang-ylang giảm huyết áp và nhịp tim trong vòng 5 phút hít thở.',
+    numerology: 'Phù hợp với Số Chủ Đạo 2, 6, 9 — số của tình yêu, sự hài hoà và phụng sự.',
+    astro: 'Năng lượng Sao Kim & Mặt Trăng — trực giác mạnh, cảm xúc phong phú, kết nối sâu.',
+    ritual: [
+      'Áp dụng hương vào ngực (chakra tim) mỗi tối trước khi ngủ',
+      'Tắm hoa hồng: 5 giọt tinh dầu nhài + muối Himalaya — ritual phục hồi sau tuần căng thẳng',
+      'Đặt một nhành hoa tươi cạnh bàn làm việc — khứu giác tự nhiên mạnh hơn nước hoa tổng hợp',
+    ],
+    recs: [
+      { name: 'Maison Margiela – Replica Flower Market', note: 'Mơ màng · Tươi nhẹ · Ngọt vừa' },
+      { name: 'Guerlain – Mon Guerlain', note: 'Lavender + Vanilla · Nữ tính · Ấm' },
+      { name: 'Chloé – Signature EDP', note: 'Hoa hồng + gỗ · Cổ điển · Sang trọng' },
+      { name: 'Tinh dầu Nhài Sambac', note: 'Aromatherapy · Hỗ trợ giấc ngủ' },
+    ],
+    affirmation: '"Sự dịu dàng của tôi là sức mạnh, không phải điểm yếu."',
+    year2026: 'Năm 2026 gọi bạn quay về với bản chất hoa lá của mình. Floral nhắc nhở rằng vẻ đẹp thực sự không cần giải thích.',
+  },
+  woody: {
+    name: 'Rừng Sâu Cổ Thụ', subtitle: 'Woody & Warm',
+    emoji: '🌲🔥',
+    color: '#7a5c3a',
+    tagline: 'Bạn là người có chiều sâu như rễ cây — vững chắc, đáng tin cậy và luôn tiến hoá.',
+    note_pyramid: ['Top: Tiêu Đen, Cardamom, Gỗ Thông', 'Heart: Gỗ Đàn Hương, Vetiver, Patchouli', 'Base: Gỗ Oud, Amber, Hắc Nham'],
+    science: 'Phytoncides từ gỗ tuyết tùng và vetiver giảm cortisol tới 23% (Nghiên cứu "Shinrin-yoku" tắm rừng Nhật Bản). Vetiver đặc biệt hiệu quả với ADD/ADHD — cải thiện khả năng tập trung tốt hơn cả lavender.',
+    numerology: 'Phù hợp với Số Chủ Đạo 4, 8, 11 — số của kiến trúc, thành tựu và trực giác cao.',
+    astro: 'Năng lượng Sao Thổ & Sao Hoả — kỷ luật, bền bỉ, sức mạnh nội tâm.',
+    ritual: [
+      'Xịt hương vào lòng bàn tay, hít thở sâu 3 lần trước cuộc họp quan trọng',
+      'Khuếch tán vetiver + sandalwood tối 30 phút trước khi thiền hoặc journaling',
+      'Dầu dưỡng thể gỗ đàn hương — ritual chăm sóc cơ thể có ý thức',
+    ],
+    recs: [
+      { name: 'Tom Ford – Oud Wood', note: 'Sang trọng · Uy quyền · Unisex' },
+      { name: 'Diptyque – Tam Dao', note: 'Thanh mát · Sạch · Gỗ đàn hương thuần khiết' },
+      { name: 'Le Labo – Santal 33', note: 'Hiện đại · Khói nhẹ · Iconic' },
+      { name: 'Tinh dầu Vetiver Haiti', note: 'Aromatherapy · Tập trung · Grounding' },
+    ],
+    affirmation: '"Tôi là nơi an toàn — cho bản thân và cho những người tôi yêu."',
+    year2026: 'Năm 2026, hương gỗ là neo đậu của bạn. Khi mọi thứ thay đổi, bạn là thứ không gì lung lay được.',
+  },
+  earthy: {
+    name: 'Đất Mẹ Thức Dậy', subtitle: 'Earthy & Grounding',
+    emoji: '🌍🌿',
+    color: '#7a9e87',
+    tagline: 'Bạn là người thuộc về đất — chân thực, chữa lành và chứa đựng một sức mạnh gốc rễ.',
+    note_pyramid: ['Top: Rau Thơm Xanh, Ngải Cứu, Cỏ Xanh', 'Heart: Đất Ẩm (Petrichor), Patchouli, Cèdre', 'Base: Muối Đất, Benzoin, Labdanum'],
+    science: 'Geosmin — mùi đất sau mưa — kích hoạt hạch hạnh nhân và vùng dưới đồi, tạo cảm giác "trở về nhà" nguyên thủy. Patchouli có tác dụng kháng viêm thần kinh, hỗ trợ cân bằng hormone estrogen tự nhiên.',
+    numerology: 'Phù hợp với Số Chủ Đạo 4, 6, 7 — số của sự ổn định, kết nối và tâm linh chiều sâu.',
+    astro: 'Năng lượng Sao Thổ & Kim Ngưu — thực tế, bền bỉ, kết nối với cơ thể và thiên nhiên.',
+    ritual: [
+      'Đi chân trần trên đất 10 phút mỗi sáng (earthing) kết hợp hít tinh dầu patchouli',
+      'Ủ trà thảo mộc ngải cứu + gừng — kích thích khứu giác từ bên trong',
+      'Đặt tinh dầu khuếch tán trong phòng ngủ với vetiver + đất sét',
+    ],
+    recs: [
+      { name: 'Comme des Garçons – Wonderwood', note: 'Đất · Muối · Phi giới tính' },
+      { name: 'Maison Francis Kurkdjian – Absolue Pour Le Soir', note: 'Phương Đông · Sâu · Gốc rễ' },
+      { name: 'Byredo – Gypsy Water', note: 'Rừng · Nhựa thông · Đơn giản' },
+      { name: 'Tinh dầu Patchouli Organic', note: 'Aromatherapy · Cân bằng hormone' },
+    ],
+    affirmation: '"Tôi được phép chậm lại. Rễ cây mạnh nhất không cần vội."',
+    year2026: 'Năm 2026, earthy nhắc nhở bạn: trước khi mở rộng ra ngoài, hãy cắm sâu vào trong.',
+  },
+  spicy: {
+    name: 'Lửa Nội Tâm', subtitle: 'Spicy & Oriental',
+    emoji: '🔥💫',
+    color: '#8b2e1e',
+    tagline: 'Bạn là người chứa đựng cả một ngọn lửa — bí ẩn, cuốn hút và không thể bị bỏ qua.',
+    note_pyramid: ['Top: Tiêu Đen, Gừng Tươi, Đinh Hương', 'Heart: Hoa Hồng Đen, Nhũ Hương, Nhài Đêm', 'Base: Oud Agarwood, Hổ Phách Đen, Xạ Hương'],
+    science: 'Capsicin trong hương tiêu và gừng kích thích thụ thể TRPV1, tạo cảm giác ấm nóng nhẹ — tăng lưu thông máu và tỉnh táo nhận thức. Oud và nhũ hương (frankincense) có tác dụng an thần neurologically qua TRPV3.',
+    numerology: 'Phù hợp với Số Chủ Đạo 1, 8, 9 — số của lãnh đạo, quyền lực và chuyển hoá.',
+    astro: 'Năng lượng Sao Hoả & Bọ Cạp — mãnh liệt, sâu sắc, không ngại đối mặt bóng tối.',
+    ritual: [
+      'Dùng hương nồng nhất vào buổi tối khi năng lượng sao mạnh nhất',
+      'Thiền với nhũ hương (frankincense) — truyền thống 5000 năm mở rộng ý thức',
+      'Xịt hương lên áo trước khi ra ngoài — để mùi hương trở thành áo giáp năng lượng',
+    ],
+    recs: [
+      { name: 'Yves Saint Laurent – Black Opium', note: 'Cà phê đen · Vani · Mạnh mẽ' },
+      { name: 'Nasomatto – Black Afgano', note: 'Oud · Resin · Huyền bí tuyệt đối' },
+      { name: 'Amouage – Interlude', note: 'Phương Đông · Khói · Sang trọng' },
+      { name: 'Tinh dầu Frankincense Oman', note: 'Aromatherapy · Thiền · Tâm linh' },
+    ],
+    affirmation: '"Ngọn lửa trong tôi không cần ai nhóm lên — nó tự cháy."',
+    year2026: 'Năm 2026 là năm bạn không cần che giấu sức mạnh nữa. Spicy nói: chiếm trọn không gian của bạn.',
+  },
+  aquatic: {
+    name: 'Hơi Thở Đại Dương', subtitle: 'Aquatic & Fresh',
+    emoji: '🌊🫧',
+    color: '#2e6e8e',
+    tagline: 'Bạn là người chảy như nước — linh hoạt, trong sáng và luôn tìm được đường đi.',
+    note_pyramid: ['Top: Muối Biển, Dưa Leo, Không Khí Buổi Sáng', 'Heart: Hoa Súng, Rong Biển, Mưa Trên Đá', 'Base: Musk Biển, Gỗ Tuyết Tùng Trắng, Ambergris'],
+    science: 'Ion âm trong không khí ẩm và gần biển tăng serotonin lên tới 30%. Mùi "petrichor" (mưa trên đất) giảm lo âu tức thì qua cơ chế phản xạ olfactory-limbic. Aquatic accords cải thiện sự tập trung ở môi trường làm việc.',
+    numerology: 'Phù hợp với Số Chủ Đạo 3, 7, 11 — số của giao tiếp, trực giác và linh cảm.',
+    astro: 'Năng lượng Mặt Trăng & Song Ngư — cảm xúc chảy tự nhiên, trực giác cực mạnh.',
+    ritual: [
+      'Hít tinh dầu aquatic blend trước khi ngồi viết hoặc sáng tạo',
+      'Vẩy nước hoa nhẹ lên gối trước khi ngủ để dễ vào giấc',
+      'Mỗi sáng xịt hương trước khi ra ngoài — để không khí trong lành theo bạn suốt ngày',
+    ],
+    recs: [
+      { name: 'Issey Miyake – L\'Eau d\'Issey', note: 'Biểu tượng · Aquatic tinh khiết' },
+      { name: 'Hermès – Un Jardin Après La Mousson', note: 'Mưa · Đất ẩm · Thiền định' },
+      { name: 'Diptyque – Do Son', note: 'Hoa biển · Muối · Nữ tính nhẹ' },
+      { name: 'Tinh dầu Eucalyptus + Spearmint', note: 'Aromatherapy · Tập trung · Sảng khoái' },
+    ],
+    affirmation: '"Tôi không cần kiểm soát dòng chảy — tôi tin vào hướng đi của mình."',
+    year2026: 'Năm 2026, aquatic nhắc bạn: sự linh hoạt không phải yếu đuối. Nước tìm được đường đi qua mọi thứ.',
+  },
+  powdery: {
+    name: 'Bầu Trời Sau Mưa', subtitle: 'Powdery & Soft',
+    emoji: '☁️🌷',
+    color: '#8b7fa8',
+    tagline: 'Bạn là sự an ủi sống động — sự hiện diện của bạn khiến người khác cảm thấy được ôm ấp.',
+    note_pyramid: ['Top: Đào Trắng, Lê, Magnolia', 'Heart: Iris Florentine, Hương Phấn, Heliotrope', 'Base: Benzoin, Musk Trắng, Vani Nhẹ'],
+    science: 'Iris và heliotrope chứa ionone — phân tử kích thích vùng trí nhớ cảm xúc (hippocampus), tạo cảm giác hoài niệm an toàn. Vanilla và benzoin tăng serotonin và melatonin — đặc biệt hữu ích cho người có lo âu ban đêm.',
+    numerology: 'Phù hợp với Số Chủ Đạo 2, 6, 22 — số của sự chăm sóc, tình cảm và xây dựng.',
+    astro: 'Năng lượng Sao Kim & Kim Ngưu — vẻ đẹp, sự thoải mái, an toàn cảm xúc.',
+    ritual: [
+      'Dùng hương powdery trong ritual tự chăm sóc: sau tắm, khi mặc đồ thoải mái ở nhà',
+      'Nhỏ 1 giọt tinh dầu iris hoặc vani lên khăn gối — hỗ trợ giấc ngủ sâu',
+      'Bột thơm từ iris khô trong ngăn tủ quần áo — để hương thấm vào từng lớp vải',
+    ],
+    recs: [
+      { name: 'Chanel – Chance Eau Tendre', note: 'Hoa tươi · Nhẹ nhàng · Thanh lịch' },
+      { name: 'Guerlain – Insolence', note: 'Iris đậm · Phấn ấm · Duyên dáng' },
+      { name: 'Dior – Miss Dior Blooming Bouquet', note: 'Phấn hoa · Trẻ trung · Nữ tính' },
+      { name: 'Tinh dầu Vanilla Absolute', note: 'Aromatherapy · Ngủ ngon · Giảm lo âu' },
+    ],
+    affirmation: '"Sự nhẹ nhàng của tôi là điều thế giới đang cần — không phải điểm yếu."',
+    year2026: 'Năm 2026, powdery nhắc nhở bạn: bạn không cần làm mọi thứ ồn ào hơn. Sự mềm mại là một dạng sức mạnh.',
+  },
+};
+
+// ══════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════
+let state = {
+  name: '', dob: '', time: '', gender: '',
+  currentQ: 0,
+  answers: {},
+  scores: { citrus:0, floral:0, woody:0, earthy:0, spicy:0, aquatic:0, powdery:0 },
+  lifeNumber: null,
+  zodiac: null,
+};
+
+// ══════════════════════════════════════════════
+//  NUMEROLOGY
+// ══════════════════════════════════════════════
+function calcLifeNumber(dob) {
+  if (!dob) return null;
+  const digits = dob.replace(/-/g,'').split('').map(Number);
+  let sum = digits.reduce((a,b)=>a+b, 0);
+  while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+    sum = String(sum).split('').map(Number).reduce((a,b)=>a+b,0);
+  }
+  return sum;
+}
+
+function getZodiac(dob) {
+  if (!dob) return null;
+  const [y,m,d] = dob.split('-').map(Number);
+  const signs = [
+    ['Ma Kết','♑',12,22],[' Bảo Bình','♒',1,20],['Song Ngư','♓',2,19],
+    ['Bạch Dương','♈',3,21],['Kim Ngưu','♉',4,20],['Song Tử','♊',5,21],
+    ['Cự Giải','♋',6,21],['Sư Tử','♌',7,23],['Xử Nữ','♍',8,23],
+    ['Thiên Bình','♎',9,23],['Bọ Cạp','♏',10,23],['Nhân Mã','♐',11,22],
+  ];
+  for (const [name,sym,mo,day] of signs) {
+    if ((m===mo && d>=day)||(m===(mo%12)+1 && d<day)) return {name,sym};
+  }
+  return {name:'Ma Kết',sym:'♑'};
+}
+
+function getAscendant(time) {
+  if (!time) return null;
+  const [h] = time.split(':').map(Number);
+  const signs = ['Sư Tử','Xử Nữ','Thiên Bình','Bọ Cạp','Nhân Mã','Ma Kết','Bảo Bình','Song Ngư','Bạch Dương','Kim Ngưu','Song Tử','Cự Giải'];
+  return signs[Math.floor(h/2) % 12];
+}
+
+function updateNumerology() {
+  const dob = document.getElementById('inp-dob').value;
+  const name = document.getElementById('inp-name').value;
+  const ln = calcLifeNumber(dob);
+  const hint = document.getElementById('num-hint-name');
+  
+  if (ln && name) {
+    hint.textContent = `Số Chủ Đạo của bạn: ${ln} ✦`;
+    hint.style.color = '#c9a84c';
+    
+    const preview = document.getElementById('num-preview');
+    const z = getZodiac(dob);
+    preview.style.display = 'block';
+    preview.innerHTML = `<div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <span class="num-badge">🔢 Số ${ln}</span>
+      ${z ? `<span class="num-badge">${z.sym} ${z.name}</span>` : ''}
+    </div>`;
+  } else if (ln) {
+    hint.textContent = '';
+  }
+}
+
+// ══════════════════════════════════════════════
+//  GENDER SELECTION
+// ══════════════════════════════════════════════
+function selectGenderById(val) {
+  state.gender = val;
+  ['female','male','neutral'].forEach(g => {
+    document.getElementById('g-'+g).classList.toggle('selected', g===val);
+  });
+}
+
+// ══════════════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════════════
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  // Stars bg for result
+  if (id === 'screen-result') {
+    document.getElementById('stars-bg').classList.add('show');
+    generateStars();
+  } else {
+    document.getElementById('stars-bg').classList.remove('show');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function generateStars() {
+  const bg = document.getElementById('stars-bg');
+  bg.innerHTML = '';
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;`;
+    bg.appendChild(s);
+  }
+}
+
+// ══════════════════════════════════════════════
+//  START QUIZ
+// ══════════════════════════════════════════════
+function startQuiz() {
+  state.name = document.getElementById('inp-name').value || 'Bạn';
+  state.dob = document.getElementById('inp-dob').value;
+  state.time = document.getElementById('inp-time').value;
+  state.lifeNumber = calcLifeNumber(state.dob);
+  state.zodiac = getZodiac(state.dob);
+  state.ascendant = getAscendant(state.time);
+  state.currentQ = 0;
+  state.answers = {};
+  state.scores = { citrus:0, floral:0, woody:0, earthy:0, spicy:0, aquatic:0, powdery:0 };
+
+  goTo('screen-quiz');
+  renderQuestion();
+}
+
+// ══════════════════════════════════════════════
+//  RENDER QUESTION
+// ══════════════════════════════════════════════
+function renderQuestion() {
+  const qi = state.currentQ;
+  const q = QUESTIONS[qi];
+  const total = QUESTIONS.length;
+  const pct = Math.round((qi / total) * 100);
+
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${qi} / ${total}`;
+
+  const saved = state.answers[q.id];
+
+  // For multiSelect questions, saved is an array; for single, a string
+  const savedArr = q.multiSelect
+    ? (Array.isArray(state.answers[q.id]) ? state.answers[q.id] : [])
+    : null;
+  const isAnswered = q.multiSelect ? savedArr.length > 0 : !!saved;
+
+  const optsHtml = q.options.map(o => {
+    const isSelected = q.multiSelect ? savedArr.includes(o.value) : saved === o.value;
+    return `
+    <div class="opt ${isSelected ? 'selected' : ''}" onclick="selectOpt('${q.id}','${o.value}',${JSON.stringify(o.scores).replace(/"/g,"'")})">
+      <div class="opt-icon">${o.icon}</div>
+      <div class="opt-body">
+        <div class="opt-main">${o.main}</div>
+        ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
+      </div>
+      ${q.multiSelect ? `<div class="opt-check" style="min-width:20px;height:20px;border-radius:50%;border:1.5px solid ${isSelected ? 'var(--gold)' : 'var(--gold-light)'};background:${isSelected ? 'var(--gold)' : 'transparent'};display:flex;align-items:center;justify-content:center;font-size:11px;color:white;">${isSelected ? '✓' : ''}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  const multiHint = q.multiSelect
+    ? `<div style="font-size:12px;color:var(--gold);margin-bottom:16px;font-style:italic;">✦ Chọn tối đa ${q.maxSelect} mùi hương bạn phản ứng — điểm sẽ cộng dồn</div>`
+    : '';
+
+  document.getElementById('q-container').innerHTML = `
+    <div class="q-card">
+      <div class="q-category">${q.category}</div>
+      <div class="q-text">${q.text}</div>
+      ${q.note ? `<div class="q-note">💡 ${q.note}</div>` : ''}
+      ${multiHint}
+      <div class="options" id="opts-${q.id}">${optsHtml}</div>
+    </div>
+    <div class="q-nav">
+      ${qi > 0 ? `<button class="btn-ghost" onclick="prevQ()">← Trước</button>` : '<span></span>'}
+      <button class="btn-ghost" onclick="nextQ()" id="btn-next" style="${isAnswered ? 'color:var(--gold);font-weight:500;' : 'opacity:0.4;'}">
+        ${qi === total-1 ? 'Xem kết quả ✦' : 'Tiếp theo →'}
+      </button>
+    </div>
+  `;
+}
+
+function selectOpt(qid, value, scoresStr) {
+  const scores = typeof scoresStr === 'object' ? scoresStr : JSON.parse(scoresStr.replace(/'/g,'"'));
+  const q = QUESTIONS.find(q => q.id === qid);
+
+  if (q.multiSelect) {
+    // Multi-select logic
+    let selected = Array.isArray(state.answers[qid]) ? [...state.answers[qid]] : [];
+
+    if (selected.includes(value)) {
+      // Deselect — remove scores
+      selected = selected.filter(v => v !== value);
+      Object.entries(scores).forEach(([k,v]) => { state.scores[k] -= v; });
+    } else {
+      // Select — enforce max
+      if (selected.length >= q.maxSelect) {
+        // Remove oldest selection and its scores
+        const removed = selected.shift();
+        const removedOpt = q.options.find(o => o.value === removed);
+        if (removedOpt) Object.entries(removedOpt.scores).forEach(([k,v]) => { state.scores[k] -= v; });
+      }
+      selected.push(value);
+      Object.entries(scores).forEach(([k,v]) => { state.scores[k] += v; });
+    }
+
+    state.answers[qid] = selected;
+
+    // Re-render options in place
+    q.options.forEach(o => {
+      const isNowSelected = selected.includes(o.value);
+      const el = document.querySelector(`#opts-${qid} .opt[onclick*="'${o.value}'"]`);
+      if (!el) return;
+      el.classList.toggle('selected', isNowSelected);
+      const check = el.querySelector('.opt-check');
+      if (check) {
+        check.style.border = `1.5px solid ${isNowSelected ? 'var(--gold)' : 'var(--gold-light)'}`;
+        check.style.background = isNowSelected ? 'var(--gold)' : 'transparent';
+        check.textContent = isNowSelected ? '✓' : '';
+      }
+    });
+
+    const btn = document.getElementById('btn-next');
+    if (btn && selected.length > 0) {
+      btn.style.opacity = '1'; btn.style.color = 'var(--gold)'; btn.style.fontWeight = '500';
+    }
+    // No auto-advance for multi-select
+    return;
+  }
+
+  // Single-select logic (original)
+  if (state.answers[qid]) {
+    const oldOpt = q.options.find(o => o.value === state.answers[qid]);
+    if (oldOpt) Object.entries(oldOpt.scores).forEach(([k,v]) => { state.scores[k] -= v; });
+  }
+
+  state.answers[qid] = value;
+  Object.entries(scores).forEach(([k,v]) => { state.scores[k] += v; });
+
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  const btn = document.getElementById('btn-next');
+  if (btn) { btn.style.opacity = '1'; btn.style.color = 'var(--gold)'; btn.style.fontWeight = '500'; }
+
+  setTimeout(() => nextQ(), 400);
+}
+
+function nextQ() {
+  const q = QUESTIONS[state.currentQ];
+  const ans = state.answers[q.id];
+  const isAnswered = q.multiSelect ? (Array.isArray(ans) && ans.length > 0) : !!ans;
+  if (!isAnswered) return;
+  
+  if (state.currentQ < QUESTIONS.length - 1) {
+    state.currentQ++;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showLoading();
+  }
+}
+
+function prevQ() {
+  if (state.currentQ > 0) {
+    state.currentQ--;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// ══════════════════════════════════════════════
+//  LOADING → RESULT
+// ══════════════════════════════════════════════
+const loaderMessages = [
+  'Đang giải mã bản đồ sao của bạn...',
+  'Tính toán rung động thần số học...',
+  'Phân tích phản ứng thần kinh với mùi hương...',
+  'Cân chỉnh năng lượng năm 2026...',
+  'Mùi hương của bạn đang hiện ra...',
+];
+
+function showLoading() {
+  goTo('screen-loading');
+  let i = 0;
+  const el = document.getElementById('loader-msg');
+  const iv = setInterval(() => {
+    i++;
+    if (i < loaderMessages.length) el.textContent = loaderMessages[i];
+  }, 700);
+  setTimeout(() => {
+    clearInterval(iv);
+    buildResult();
+  }, 3500);
+}
+
+// ══════════════════════════════════════════════
+//  BUILD RESULT
+// ══════════════════════════════════════════════
+function buildResult() {
+  // Determine winner
+  const topScent = Object.entries(state.scores)
+    .sort(([,a],[,b]) => b-a)[0][0];
+  
+  const profile = SCENT_PROFILES[topScent];
+  const z = state.zodiac;
+  const asc = state.ascendant;
+  const ln = state.lifeNumber;
+  const name = state.name;
+
+  // Adjust scores with numerology hint
+  const noteBonus = (ln === 1||ln===3||ln===5) ? 'citrus' :
+                    (ln === 2||ln===6||ln===9) ? 'floral' :
+                    (ln === 4||ln===8) ? 'woody' :
+                    (ln === 7||ln===11) ? 'aquatic' : null;
+
+  const scentsRanked = Object.entries(state.scores).sort(([,a],[,b])=>b-a);
+  const top2 = scentsRanked[1][0];
+
+  const container = document.getElementById('screen-result');
+  container.innerHTML = `
+    <div class="result-hero">
+      <canvas class="result-stars-deco" id="star-canvas" width="640" height="400" style="position:absolute;inset:0;opacity:0.4;"></canvas>
+      <div class="result-scent-icon">${profile.emoji}</div>
+      <div class="result-tag">✦ Mùi hương của ${name} ✦</div>
+      <div class="result-name">${profile.name}<br><em>${profile.subtitle}</em></div>
+      <div class="result-subtitle">${profile.tagline}</div>
+    </div>
+
+    <div class="result-grid">
+      <div class="result-card full-width">
+        <div class="result-card-icon">🌙</div>
+        <div class="result-card-title">Năng Lượng Năm 2026</div>
+        <div class="result-card-body">${profile.year2026}</div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-icon">🧬</div>
+        <div class="result-card-title">Khoa Học Mùi Hương</div>
+        <div class="result-card-body">${profile.science}</div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-icon">🔢</div>
+        <div class="result-card-title">Thần Số Học</div>
+        <div class="result-card-body">
+          ${ln ? `<strong>Số Chủ Đạo: ${ln}</strong><br><br>` : ''}
+          ${profile.numerology}
+          ${noteBonus === topScent ? `<br><br>✨ Số của bạn cộng hưởng hoàn hảo với mùi hương này!` : ''}
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-icon">⭐</div>
+        <div class="result-card-title">Bản Đồ Sao</div>
+        <div class="result-card-body">
+          ${z ? `<strong>${z.sym} ${z.name.trim()}</strong>${asc ? ` · Ascendant <strong>${asc}</strong>` : ''}<br><br>` : ''}
+          ${profile.astro}
+          ${!z ? 'Nhập ngày sinh để xem phân tích chiêm tinh chi tiết hơn.' : ''}
+        </div>
+      </div>
+
+      <div class="result-card full-width">
+        <div class="result-card-icon">🌸</div>
+        <div class="result-card-title">Kim Tự Tháp Mùi Hương Của Bạn</div>
+        <div class="result-card-body">
+          ${profile.note_pyramid.map(l=>`<div style="padding:6px 0;border-bottom:1px solid var(--smoke);font-size:13px;color:#555;">${l}</div>`).join('')}
+        </div>
+      </div>
+
+      <div class="result-card full-width">
+        <div class="result-card-icon">✨</div>
+        <div class="result-card-title">Gợi Ý Nước Hoa & Tinh Dầu</div>
+        <div class="result-card-body">
+          <div class="scent-list">
+            ${profile.recs.map(r=>`
+              <div class="scent-item">
+                <div class="scent-dot"></div>
+                <div class="scent-item-name">${r.name}</div>
+                <div class="scent-item-note">${r.note}</div>
+              </div>
+            `).join('')}
+          </div>
+          ${top2 ? `<div style="margin-top:16px;font-size:12px;color:#aaa;">✦ Mùi hương phụ của bạn: <strong style="color:var(--gold)">${SCENT_PROFILES[top2]?.subtitle || top2}</strong> — có thể kết hợp layering hai mùi này.</div>` : ''}
+        </div>
+      </div>
+
+      <div class="result-card full-width">
+        <div class="result-card-icon">🕯</div>
+        <div class="result-card-title">Ritual Mùi Hương 2026</div>
+        <div class="result-card-body">
+          <div class="ritual-steps">
+            ${profile.ritual.map(r=>`
+              <div class="ritual-step">
+                <div class="ritual-step-num"></div>
+                <div class="ritual-step-text">${r}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="affirmation-box">
+      <div class="quote">${profile.affirmation}</div>
+      <div class="quote-attr">✦ Affirmation năm 2026 ✦</div>
+    </div>
+
+    <div class="share-row">
+      <button class="btn-share btn-fb" onclick="shareFB()">📘 Chia sẻ Facebook</button>
+      <button class="btn-share btn-copy" onclick="copyLink()">🔗 Sao chép link</button>
+      <button class="btn-share btn-retry" onclick="retry()">🔄 Làm lại</button>
+    </div>
+    <div style="text-align:center;margin-top:16px;font-size:11px;color:#ccc;">
+      Made with ✦ by PeaceSolution
+    </div>
+  `;
+
+  goTo('screen-result');
+}
+
+function shareFB() {
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}&quote=Mùi+hương+của+tôi+năm+2026+là+${SCENT_PROFILES[getTopScent()]?.name}+✨+Khám+phá+của+bạn+nhé!`, '_blank');
+}
+
+function copyLink() {
+  navigator.clipboard?.writeText(location.href).then(()=>{
+    alert('Đã sao chép link! Chia sẻ với bạn bè nhé 🌸');
+  }).catch(()=>{ alert('Hãy sao chép link trên thanh địa chỉ nhé!'); });
+}
+
+function retry() {
+  state = { name:'', dob:'', time:'', gender:'', currentQ:0, answers:{}, scores:{citrus:0,floral:0,woody:0,earthy:0,spicy:0,aquatic:0,powdery:0}, lifeNumber:null, zodiac:null };
+  document.getElementById('screen-result').innerHTML = '';
+  goTo('screen-intro');
+}
+
+function getTopScent() {
+  return Object.entries(state.scores).sort(([,a],[,b])=>b-a)[0]?.[0] || 'floral';
+}
+</script>
+</body>
+</html>
